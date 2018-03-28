@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 
 public class MainActivity extends AppCompatActivity {
     // Create a private member variable that can hold our WebView
@@ -20,15 +21,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // The FAB-code can be removed
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        WebView webView = new WebView(this);
+        setContentView(webView);
+       // webView.loadUrl("http://wwwlab.iit.his.se/b17annni/Apptyp");
+        webView.loadUrl("file:///android_asset/about.html");
+
         // 1. Create a WebView element in the layout file content_main.xml
         // 2. Give the WebView element created in step 1 ID "my_webview"
         // Enter your code that creates your WebView here...
